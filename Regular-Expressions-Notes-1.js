@@ -54,3 +54,26 @@ matStr.match(bgRegex); // Returns null
 let jennyStr = "Jenny8675309";
 let myRegex = /[a-z0-9]/ig; // matches all letters and numbers in jennyStr
 jennyStr.match(myRegex);
+
+//^ can be used to match not equal to a set of characters
+let quoteSample = "3 blind mice.";
+let myRegex = /[^aeiou0-9]/ig; // match anything not a vowel or a number
+let result = quoteSample.match(myRegex);
+
+//+ will return multiple of the same character (or group of characters)
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/ig; // Match s or consecutive s's
+let result = difficultSpelling.match(myRegex); //Returns ['ss' , 'ss']
+
+//* will match zero or more of the character (or group of characters)
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*/;
+soccerWord.match(goRegex); // Returns ["goooooooo"]
+gPhrase.match(goRegex); // Returns ["g"]
+
+//Regex will default to the largest possible answer (greedy).
+//? will search for the shortest possible string (lazy).
+let text ="titanic";
+let myRegex = /t[a-z]*i/; // search for the smallest form of t + anything + i
+let result = text.match(myRegex); //returns 'ti' instead of 'titani'

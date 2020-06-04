@@ -55,7 +55,7 @@ let jennyStr = "Jenny8675309";
 let myRegex = /[a-z0-9]/ig; // matches all letters and numbers in jennyStr
 jennyStr.match(myRegex);
 
-//^ can be used to match not equal to a set of characters
+//[^] can be used to match not equal to a set of characters. Only works inside [].
 let quoteSample = "3 blind mice.";
 let myRegex = /[^aeiou0-9]/ig; // match anything not a vowel or a number
 let result = quoteSample.match(myRegex);
@@ -77,3 +77,35 @@ gPhrase.match(goRegex); // Returns ["g"]
 let text ="titanic";
 let myRegex = /t[a-z]*i/; // search for the smallest form of t + anything + i
 let result = text.match(myRegex); //returns 'ti' instead of 'titani'
+
+//^ will search only the beginning of a string (when not inside [])
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);// Returns true
+
+//$ can be used at the end of a Regex to find characters at the end of a string
+let theEnding = "This is a never ending story";
+let storyRegex = /story$/;
+storyRegex.test(theEnding); // Returns true
+
+//'\w' will search for any letter, number, or '_'. [A-Za-z0-9_]
+let quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/g;
+let result = quoteSample.match(alphabetRegexV2).length; //Counts the letters and numbers in the phrase
+
+//'\W' will search for everything NOT included in [A-Za-z0-9_]
+let quoteSample = "The five boxing wizards jump quickly.";
+let nonAlphabetRegex = /\W/g;
+let result = quoteSample.match(nonAlphabetRegex).length;//Counts the spaces and punctuation
+
+//'\d' will search for numbers [0-9]
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g;
+let result = movieName.match(numRegex).length; //Counts the number of digits
+
+//'\D' will match all non-numbers
+let movieName = "2001: A Space Odyssey";
+let noNumRegex = /\D/g;
+let result = movieName.match(noNumRegex).length;
+
+

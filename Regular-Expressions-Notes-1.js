@@ -108,4 +108,31 @@ let movieName = "2001: A Space Odyssey";
 let noNumRegex = /\D/g;
 let result = movieName.match(noNumRegex).length;
 
+//'\s' matches whitespace, carriage return, tab, form feed, and new line characters
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex); // Returns [" ", " "]
+
+//'\S' matches everything except white spaces
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let nonSpaceRegex = /\S/g;
+whiteSpace.match(nonSpaceRegex).length; // Returns 32
+
+//{} can specify the lower and upper bound on number of characters to return
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+multipleA.test(A4); // Returns true
+multipleA.test(A2); // Returns false
+
+//Can also specify only lower number {3,} or only higher number {,5}
+
+//Match exect number with no comma {4}
+
+//? tests for zero or one of a character
+let american = "color";
+let british = "colour";
+let rainbowRegex= /colou?r/;
+rainbowRegex.test(american); // Returns true
+rainbowRegex.test(british); // Returns true
 
